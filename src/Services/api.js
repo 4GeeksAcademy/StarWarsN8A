@@ -5,9 +5,11 @@ const baseUrlApi = "https://www.swapi.tech/api"
 // service for data
 export const getElementList = async (elemType) => {
 
-    const response = fetch(baseUrlApi + elemType)
+    const response = await fetch(baseUrlApi + "/"  + elemType)
     const data = await response.json()
+    console.log(data.results)
     return data.results // list
+    
 }
 
  //service for details

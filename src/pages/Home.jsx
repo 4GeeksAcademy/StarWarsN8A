@@ -10,9 +10,10 @@ export const Home = () => {
 	const { store, dispatch } = useGlobalReducer()
 
 	const handleGetElementList = async (type, action) => {
-		const list = await getElementList("people")
+		const list = await getElementList(type)
 		dispatch({ type: action, payload: list })
 	}
+	
 
 	useEffect(() => {
 
@@ -41,11 +42,24 @@ export const Home = () => {
 				<div className="cardList">
 					<h3>People</h3>
 					<div>
-						<ul className="d-flex">
+						<div id="carouselExampleIndicators" className="carousel carousel-dark slide" data-ride="carousel">
+							<ol className="carousel-indicators">
+								<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="1" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="2" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="3" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="4" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="5" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="6" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="7" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="8" />
+								<li data-target="#carouselExampleIndicators" data-slide-to="9" />
+							</ol>
+						<ul className="carousel-inner">
 							{
 								store.people.map((people) => (
 									<li key={people.uid}>
-										<div className="card" style={{ width: "18rem" }}>
+										<div className="card carousel-item active" style={{ width: "18rem" }}>
 											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
 											<div className="card-body">
 												<h5 className="card-title">{people.name}</h5>
@@ -56,20 +70,8 @@ export const Home = () => {
 								))
 							}
 						</ul>
-						<div id="carouselExampleIndicators" className="carousel carousel-dark slide" data-ride="carousel">
-							<ol className="carousel-indicators">
-								<li data-target="#carouselPeople1" data-slide-to="0" className="active" />
-								<li data-target="#carouselPeople2" data-slide-to="1" />
-								<li data-target="#carouselPeople3" data-slide-to="2" />
-								<li data-target="#carouselPeople4" data-slide-to="3" />
-								<li data-target="#carouselPeople5" data-slide-to="4" />
-								<li data-target="#carouselPeople6" data-slide-to="5" />
-								<li data-target="#carouselPeople7" data-slide-to="6" />
-								<li data-target="#carouselPeople8" data-slide-to="7" />
-								<li data-target="#carouselPeople9" data-slide-to="8" />
-								<li data-target="#carouselPeople10" data-slide-to="9" />
-							</ol>
-							<div className="carousel-inner"></div>
+						
+							{/* <div className="carousel-inner">
 							<div idclassName="carousel-item">
 								<div className="card" style={{ width: "18rem" }}>
 									<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
@@ -168,6 +170,7 @@ export const Home = () => {
 											</div>
 										</div>
 									</div>
+									</div>
 									<a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 										<span className="carousel-control-prev-icon" aria-hidden="true"></span>
 										<span className="sr-only">Previous</span>
@@ -177,9 +180,11 @@ export const Home = () => {
 										<span className="sr-only">Next</span>
 									</a>
 								</div>
-								</div>
+								</div> */}
+								
 								<div className="cardList">
 									<h3>Planets</h3>
+									
 									<ul className="d-flex">
 										{
 											store.planets.map((planets) => (
@@ -195,90 +200,7 @@ export const Home = () => {
 											))
 										}
 									</ul>
-									<div className="d-flex">
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-									</div>
-									<div className="d-flex">
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-										<div className="card" style={{ width: "18rem" }}>
-											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
-											<div className="card-body">
-												<h5 className="card-title">Card title</h5>
-												<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-												<a href="#" className="btn learn">Learn more</a><a href="#" className="btn heart">💛</a>
-											</div>
-										</div>
-									</div>
+					
 
 								</div>
 								<div className="cardList">
@@ -298,7 +220,7 @@ export const Home = () => {
 											))
 										}
 									</ul>
-									<div className="d-flex">
+									{/* <div className="d-flex">
 										<div className="card" style={{ width: "18rem" }}>
 											<img src="https://dz2cdn1.dzone.com/storage/temp/13989967-400x200" className="card-img-top" alt="placehold.it" />
 											<div className="card-body">
@@ -501,7 +423,7 @@ export const Home = () => {
 											</div>
 										</div>
 
-									</div>
+									</div> */}
 
 
 								</div>

@@ -17,12 +17,12 @@ export default function storeReducer(store, action = {}) {
         case 'get_planets':
       return {
         ...store,
-        people: action.payload    
+        planets: action.payload    
         };
         case 'get_vehicles':
       return {
         ...store,
-        people: action.payload    
+        vehicles: action.payload    
         };
     default:
       return store
