@@ -9,10 +9,10 @@ body {
   background: linear-gradient(to bottom, #000000, #1b2735 70%, #090a0f);
   overflow: scroll;
   width: 92%;
-  margin-left: ;
 }
 h3 {
   color: #FFE917;
+  text-align: right;
 }
 
 .card {

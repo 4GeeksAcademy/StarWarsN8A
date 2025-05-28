@@ -3,7 +3,8 @@ export const initialStore=()=>{
     people: [],
     planets: [],
     vehicles: [],
-    favorites: []
+    favorites: [],
+    description: []
   }
 }
 
@@ -23,6 +24,16 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         vehicles: action.payload    
+        };
+        case 'get_favorites':
+        return {
+        ...store,
+        favorites: action.payload    
+        };
+         case 'get_description':
+        return {
+        ...store,
+        description: action.payload    
         };
     default:
       return store
